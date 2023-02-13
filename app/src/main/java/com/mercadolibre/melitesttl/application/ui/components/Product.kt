@@ -1,9 +1,6 @@
 package com.mercadolibre.melitesttl.application.ui.components
 
-import android.graphics.drawable.Drawable
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,12 +19,24 @@ import com.mercadolibre.test.data.model.Results
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Product(prod: Results, drawable: Int) {
+fun Product(
+    prod: Results,
+    drawable: Int,
+    onClickDetail: (title: String, price: String, thumbnail: String, available: String, seller: String) -> Unit
+) {
     val configuration = LocalConfiguration.current
     val widthCard = (configuration.screenWidthDp.dp / 2)
 
     ElevatedCard(
-        onClick = {},
+        onClick = {
+            onClickDetail.invoke(
+                prod.title,
+                prod.price.toString(),
+                normalizeUrl(prod.thumbnail),
+                prod.available_quantity.toString(),
+                prod.domain_id
+            )
+        },
         modifier = Modifier
             .width(width = widthCard - 10.dp)
             .wrapContentHeight()
@@ -48,7 +57,6 @@ fun Product(prod: Results, drawable: Int) {
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(prod.thumbnail)
                     .crossfade(true)
-                    //.size(coil.size.Size.ORIGINAL)
                     .build(),
                 placeholder = painterResource(id = drawable),
                 contentDescription = null,
@@ -72,3 +80,5 @@ fun Product(prod: Results, drawable: Int) {
 
     }
 }
+
+fun normalizeUrl(thumbnail: String): String = thumbnail.substring(26, thumbnail.length)

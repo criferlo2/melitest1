@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
 
@@ -20,7 +21,7 @@ import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
 fun SearchField() {
 
     var text by remember { mutableStateOf(TextFieldValue()) }
-    var viewModel: ProductViewModel = viewModel()
+    var viewModel: ProductViewModel = hiltViewModel()
 
     TextField(
         value = text,

@@ -16,9 +16,12 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.mercadolibre.melitesttl.application.ui.components.Product
 import com.mercadolibre.melitesttl.application.ui.components.SearchBar
+import com.mercadolibre.melitesttl.application.ui.navigation.NavHostMeli
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
 import com.mercadolibre.melitesttl.ui.theme.MeliTestTLTheme
 import com.mercadolibre.test.data.model.ResultList
@@ -28,42 +31,62 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
+            val currentBackStack by navController.currentBackStackEntryAsState()
+            val currentDestination = currentBackStack?.destination
+
             MeliTestTLTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Body()
+                    NavHostMeli(navController = navController)
                 }
             }
         }
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Body() {
+fun Main(
+    onClickDetail: (
+        title: String,
+        price: String,
+        thumbnail: String,
+        available: String,
+        seller: String
+    ) -> Unit
+) {
     MeliTestTLTheme {
         Scaffold(
             topBar = {
                 SearchBar()
             },
-            content = { paddingValues -> Content(modifier = Modifier.padding(paddingValues)) }
+            content = { paddingValues ->
+                Content(
+                    modifier = Modifier.padding(paddingValues),
+                    onClickDetail
+                )
+            }
         )
     }
 }
 
 @Composable
-fun Content(modifier: Modifier) {
+fun Content(
+    modifier: Modifier,
+    onClickDetail: (title: String, price: String, thumbnail: String, available: String, seller: String) -> Unit
+) {
 
     val configuration = LocalConfiguration.current
     val widthCard = (configuration.screenWidthDp.dp / 2)
     val productsEmpty = arrayListOf<ResultList>()
-    var viewModel: ProductViewModel = viewModel()
+    var viewModel: ProductViewModel = hiltViewModel()
     val products = viewModel.productsLiveData.observeAsState()
 
     LazyVerticalGrid(
@@ -71,7 +94,7 @@ fun Content(modifier: Modifier) {
         columns = GridCells.Adaptive(minSize = widthCard)
     ) {
         items(products.value ?: productsEmpty) { prod ->
-            Product(prod as Results, R.drawable.ic_launcher_background)
+            Product(prod as Results, R.drawable.ic_launcher_background, onClickDetail)
         }
     }
 }
@@ -79,5 +102,7 @@ fun Content(modifier: Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Body()
+    Main(
+        onClickDetail = { _, _, _, _, _ -> Unit}
+    )
 }
