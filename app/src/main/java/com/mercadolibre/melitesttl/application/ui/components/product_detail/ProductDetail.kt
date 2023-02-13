@@ -1,21 +1,20 @@
-package com.mercadolibre.melitesttl.application.ui.components
+package com.mercadolibre.melitesttl.application.ui.components.product_detail
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.mercadolibre.melitesttl.ui.theme.md_theme_dark_secondaryContainer
+import com.mercadolibre.melitesttl.R
 import com.mercadolibre.melitesttl.ui.theme.md_theme_light_primaryContainer
 import com.mercadolibre.melitesttl.ui.theme.md_theme_light_secondary
 
@@ -113,7 +112,7 @@ fun ContentDetail(
                     .data(urlThumbnail)
                     .crossfade(true)
                     .build(),
-                //placeholder = painterResource(id = drawable),
+                placeholder = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.size(200.dp)

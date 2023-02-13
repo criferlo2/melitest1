@@ -1,6 +1,6 @@
 package com.mercadolibre.melitesttl.application.di
 
-import com.mercadolibre.test.data.repository.IProductRepository
+import com.mercadolibre.melitesttl.application.data.repository.IProductRepository
 import com.mercadolibre.melitesttl.application.data.repository.ProductRepository
 import dagger.Binds
 import dagger.Module

@@ -6,12 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.mercadolibre.melitesttl.application.data.repository.response.ResponseObject
 import com.mercadolibre.test.data.model.ResultList
 import com.mercadolibre.test.data.model.Results
-import com.mercadolibre.test.data.repository.IProductRepository
+import com.mercadolibre.melitesttl.application.data.repository.IProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
-import javax.inject.Scope
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
@@ -19,8 +18,6 @@ class ProductViewModel @Inject constructor(
 ) : ViewModel() {
 
     var productsLiveData = MutableLiveData<List<Results>>()
-
-    fun getSomethingFromRepo() = productRepository.getSomethingOfRepository()
 
     fun getProducts(text: String) {
         viewModelScope.launch {

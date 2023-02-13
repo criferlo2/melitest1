@@ -6,8 +6,8 @@ import androidx.navigation.NavHostController
 
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.mercadolibre.melitesttl.Main
-import com.mercadolibre.melitesttl.application.ui.components.ProductDetail
+import com.mercadolibre.melitesttl.application.ui.components.home.Main
+import com.mercadolibre.melitesttl.application.ui.components.product_detail.ProductDetail
 
 @Composable
 fun NavHostMeli(
