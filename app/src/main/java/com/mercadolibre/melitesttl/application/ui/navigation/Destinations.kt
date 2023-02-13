@@ -17,7 +17,7 @@ object ProductDetailDestination : DestinationsMeli {
     const val product_price = "product_price"
     const val product_thumbnail = "product_thumbnail"
     const val product_available = "product_available"
-    const val product_seller = "product_available"
+    const val product_seller = "product_seller"
     val arguments = listOf(
         navArgument(product_title) { type = NavType.StringType },
         navArgument(product_price) { type = NavType.StringType },

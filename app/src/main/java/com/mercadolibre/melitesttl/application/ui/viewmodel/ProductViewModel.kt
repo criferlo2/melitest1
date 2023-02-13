@@ -20,11 +20,6 @@ class ProductViewModel @Inject constructor(
 
     var productsLiveData = MutableLiveData<List<Results>>()
 
-
-    fun getSomething(): String {
-        return "puta lo hice"
-    }
-
     fun getSomethingFromRepo() = productRepository.getSomethingOfRepository()
 
     fun getProducts(text: String) {

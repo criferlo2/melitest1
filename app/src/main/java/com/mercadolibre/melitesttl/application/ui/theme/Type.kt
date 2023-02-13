@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.sp
 import com.mercadolibre.melitesttl.R
 
 val fonts = FontFamily(
-    Font(R.font.raleway_bold, FontWeight.Bold),
-    Font(R.font.raleway_regular)
+    Font(R.font.poppins_bold, FontWeight.Bold),
+    Font(R.font.poppins_regular)
 )
 
 val CustomTypography = Typography(
@@ -28,6 +28,11 @@ val CustomTypography = Typography(
         fontFamily = fonts,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
+    ),
+    labelLarge = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.Bold,
+        fontSize = 26.sp,
     ),
 
 )

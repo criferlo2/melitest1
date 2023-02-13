@@ -8,7 +8,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.mercadolibre.melitesttl.Main
 import com.mercadolibre.melitesttl.application.ui.components.ProductDetail
-import timber.log.Timber
 
 @Composable
 fun NavHostMeli(
@@ -27,7 +26,6 @@ fun NavHostMeli(
                                   thumbnail,
                                   available,
                                   seller ->
-                    //navController.navigate(ProductDetailDestination.route)
                     navController.navigate("${ProductDetailDestination.route}/$title/$price/$thumbnail/$available/$seller")
 
                 }

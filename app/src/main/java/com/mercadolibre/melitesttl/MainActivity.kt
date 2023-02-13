@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mercadolibre.melitesttl.application.ui.components.Product
+import com.mercadolibre.melitesttl.application.ui.components.ProductDetail
 import com.mercadolibre.melitesttl.application.ui.components.SearchBar
 import com.mercadolibre.melitesttl.application.ui.navigation.NavHostMeli
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
@@ -35,8 +36,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            val currentBackStack by navController.currentBackStackEntryAsState()
-            val currentDestination = currentBackStack?.destination
 
             MeliTestTLTheme {
                 Surface(
@@ -91,7 +90,9 @@ fun Content(
 
     LazyVerticalGrid(
         modifier = modifier,
-        columns = GridCells.Adaptive(minSize = widthCard)
+        columns = GridCells.Adaptive(minSize = widthCard),
+
+
     ) {
         items(products.value ?: productsEmpty) { prod ->
             Product(prod as Results, R.drawable.ic_launcher_background, onClickDetail)
@@ -102,7 +103,11 @@ fun Content(
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Main(
-        onClickDetail = { _, _, _, _, _ -> Unit}
+    ProductDetail(
+        productTitle = "Audifonos",
+        productPrice = "1000",
+        productThumbnail = "D_791924-MLA53428740417_012023-O.jpg",
+        productAvailable = "10",
+        productSeller = "SELLER109"
     )
 }

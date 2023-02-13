@@ -28,6 +28,9 @@ fun Product(
     val widthCard = (configuration.screenWidthDp.dp / 2)
 
     ElevatedCard(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 10.dp
+        ),
         onClick = {
             onClickDetail.invoke(
                 prod.title,
@@ -51,7 +54,8 @@ fun Product(
                 .wrapContentHeight()
                 .padding(all = 5.dp),
 
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
@@ -68,7 +72,7 @@ fun Product(
         Text(
             modifier = Modifier.padding(start = 5.dp, top = 5.dp),
             text = prod.title,
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Left
         )
         Text(
