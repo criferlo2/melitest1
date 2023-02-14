@@ -6,11 +6,6 @@
 
 # Presentation of project for MercadoLibre Jobs
 
-
-- **Goal**
-The goal of this project is to present a list of products that the user is searching with a keyword, and the user can check the product description.
-
-
 ## Appendix
 
 - Goal
