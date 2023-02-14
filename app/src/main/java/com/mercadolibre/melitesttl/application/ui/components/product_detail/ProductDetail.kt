@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -14,7 +15,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.mercadolibre.melitesttl.R
 import com.mercadolibre.melitesttl.ui.theme.md_theme_light_primaryContainer
 import com.mercadolibre.melitesttl.ui.theme.md_theme_light_secondary
 
@@ -25,7 +25,8 @@ fun ProductDetail(
     productPrice: String?,
     productThumbnail: String?,
     productAvailable: String?,
-    productSeller: String?
+    productSeller: String?,
+    drawable: Painter
 ) {
     Scaffold(
         topBar = {
@@ -38,7 +39,8 @@ fun ProductDetail(
                 productPrice,
                 productThumbnail,
                 productAvailable,
-                productSeller
+                productSeller,
+                drawable
             )
         }
     )
@@ -86,7 +88,8 @@ fun ContentDetail(
     productPrice: String?,
     productThumbnail: String?,
     productAvailable: String?,
-    productSeller: String?
+    productSeller: String?,
+    drawable: Painter
 ) {
     val urlThumbnail = "http://http2.mlstatic.com/$productThumbnail"
     val padding = 16.dp
@@ -112,7 +115,7 @@ fun ContentDetail(
                     .data(urlThumbnail)
                     .crossfade(true)
                     .build(),
-                placeholder = painterResource(id = R.drawable.ic_launcher_background),
+                placeholder = drawable,
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.size(200.dp)

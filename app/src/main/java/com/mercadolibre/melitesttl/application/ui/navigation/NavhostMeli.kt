@@ -2,10 +2,12 @@ package com.mercadolibre.melitesttl.application.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.mercadolibre.melitesttl.R
 import com.mercadolibre.melitesttl.application.ui.components.home.Main
 import com.mercadolibre.melitesttl.application.ui.components.product_detail.ProductDetail
 
@@ -28,7 +30,8 @@ fun NavHostMeli(
                                   seller ->
                     navController.navigate("${ProductDetailDestination.route}/$title/$price/$thumbnail/$available/$seller")
 
-                }
+                },
+                drawable = R.drawable.ic_launcher_background
             )
         }
 
@@ -52,7 +55,8 @@ fun NavHostMeli(
                 productPrice,
                 productThumbnail,
                 productAvailable,
-                productSeller
+                productSeller,
+                drawable = painterResource(id = R.drawable.ic_launcher_background)
             )
         }
     }

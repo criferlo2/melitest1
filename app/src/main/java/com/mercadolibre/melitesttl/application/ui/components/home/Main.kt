@@ -18,7 +18,8 @@ fun Main(
         thumbnail: String,
         available: String,
         seller: String
-    ) -> Unit
+    ) -> Unit,
+    drawable: Int
 ) {
     MeliTestTLTheme {
         Scaffold(
@@ -28,7 +29,8 @@ fun Main(
             content = { paddingValues ->
                 Content(
                     modifier = Modifier.padding(paddingValues),
-                    onClickDetail
+                    onClickDetail,
+                    drawable
                 )
             }
         )

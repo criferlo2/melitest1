@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.mercadolibre.melitesttl.R
 import com.mercadolibre.melitesttl.application.ui.components.Product
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
 import com.mercadolibre.test.data.model.ResultList
@@ -19,7 +18,8 @@ import com.mercadolibre.test.data.model.Results
 @Composable
 fun Content(
     modifier: Modifier,
-    onClickDetail: (title: String, price: String, thumbnail: String, available: String, seller: String) -> Unit
+    onClickDetail: (title: String, price: String, thumbnail: String, available: String, seller: String) -> Unit,
+    drawable: Int
 ) {
 
     val configuration = LocalConfiguration.current
@@ -32,10 +32,9 @@ fun Content(
         modifier = modifier,
         columns = GridCells.Adaptive(minSize = widthCard),
 
-
         ) {
         items(products.value ?: productsEmpty) { prod ->
-            Product(prod as Results, R.drawable.ic_launcher_background, onClickDetail)
+            Product(prod as Results, drawable, onClickDetail)
         }
     }
 }
