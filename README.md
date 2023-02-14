@@ -10,11 +10,6 @@
 Goal
 The goal of this project is to present a list of products that the user is searching with a keyword, and the user can check the product description.
 
-Result
-
-The user can enter the keyword and the app will search into the API the results that are rendered so:
-
-
 
 ## Appendix
 
