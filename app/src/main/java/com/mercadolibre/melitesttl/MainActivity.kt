@@ -11,8 +11,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.mercadolibre.melitesttl.application.ui.components.home.ErrorScreen
 import com.mercadolibre.melitesttl.application.ui.components.product_detail.ProductDetail
 import com.mercadolibre.melitesttl.application.ui.navigation.NavHostMeli
+import com.mercadolibre.melitesttl.application.ui.viewmodel.ErrorUI
 import com.mercadolibre.melitesttl.ui.theme.MeliTestTLTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,12 +41,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    /*ProductDetail(
-        productTitle = "Audifonos",
-        productPrice = "1000",
-        productThumbnail = "D_791924-MLA53428740417_012023-O.jpg",
-        productAvailable = "10",
-        productSeller = "SELLER109",
-        painterResource(id = R.drawable.ic_launcher_background)
-    )*/
+   ErrorScreen(modifier = Modifier.fillMaxWidth().fillMaxHeight()
+       , error = ErrorUI(500, "Ocurre un error")
+   )
 }

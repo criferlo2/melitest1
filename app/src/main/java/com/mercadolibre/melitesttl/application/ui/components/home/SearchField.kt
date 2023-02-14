@@ -1,4 +1,4 @@
-package com.mercadolibre.melitesttl.application.ui.components
+package com.mercadolibre.melitesttl.application.ui.components.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

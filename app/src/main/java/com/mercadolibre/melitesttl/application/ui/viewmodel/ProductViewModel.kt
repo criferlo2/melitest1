@@ -18,6 +18,7 @@ class ProductViewModel @Inject constructor(
 ) : ViewModel() {
 
     var productsLiveData = MutableLiveData<List<Results>>()
+    var errorLiveData = MutableLiveData<ErrorUI>()
 
     fun getProducts(text: String) {
         viewModelScope.launch {
@@ -27,7 +28,7 @@ class ProductViewModel @Inject constructor(
                     productsLiveData.postValue(resultList)
                     Timber.d("success %s", resultList.size)
                 }
-                is ResponseObject.Error -> Timber.d("error", "error")
+                is ResponseObject.Error -> errorLiveData.postValue(ErrorUI(products.code, products.message))
             }
         }
     }
