@@ -4,13 +4,11 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mercadolibre.melitesttl.application.data.repository.IProductRepository
 import com.mercadolibre.melitesttl.application.data.repository.response.ResponseObject
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import com.mercadolibre.test.data.model.Results
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.*
 import org.junit.Before
 import org.junit.Rule
@@ -86,8 +84,8 @@ class ViewModelTest{
         viewModel.getProducts("iphone")
 
         //then
-        TestCoroutineScope().launch {
-            Mockito.verify(mockRepository).getProducts("iphone1")
+        launch {
+            Mockito.verify(mockRepository).getProducts("iphone")
         }
     }
 }

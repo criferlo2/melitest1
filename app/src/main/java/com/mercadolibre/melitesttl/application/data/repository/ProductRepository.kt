@@ -1,6 +1,6 @@
 package com.mercadolibre.melitesttl.application.data.repository
 
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import com.mercadolibre.melitesttl.application.data.repository.response.ResponseObject
 import com.mercadolibre.melitesttl.application.data.service.IProductService
 import retrofit2.Response

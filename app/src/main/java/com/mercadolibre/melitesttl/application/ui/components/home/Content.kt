@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mercadolibre.melitesttl.application.ui.components.Product
 import com.mercadolibre.melitesttl.application.ui.viewmodel.ProductViewModel
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import com.mercadolibre.test.data.model.Results
 
 

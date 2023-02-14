@@ -1,6 +1,6 @@
 package com.mercadolibre.melitesttl.application.data.service
 
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

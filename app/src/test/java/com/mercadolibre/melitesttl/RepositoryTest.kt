@@ -3,20 +3,14 @@ package com.mercadolibre.melitesttl
 import com.mercadolibre.melitesttl.application.data.repository.ProductRepository
 import com.mercadolibre.melitesttl.application.data.repository.response.ResponseObject
 import com.mercadolibre.melitesttl.application.data.service.IProductService
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import com.mercadolibre.test.data.model.Results
 import kotlinx.coroutines.test.runTest
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody.Part.Companion.create
-import okhttp3.Protocol
-import okhttp3.Request
-import okhttp3.ResponseBody
 import okhttp3.ResponseBody.Companion.toResponseBody
 import org.junit.Assert.*
 import org.junit.Test
 import org.mockito.Mockito
-import org.mockito.Mockito.mock
 import retrofit2.Response
 
 class RepositoryUnitTest {

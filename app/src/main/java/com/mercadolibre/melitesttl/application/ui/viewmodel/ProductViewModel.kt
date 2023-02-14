@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mercadolibre.melitesttl.application.data.repository.response.ResponseObject
-import com.mercadolibre.test.data.model.ResultList
+import com.mercadolibre.melitesttl.application.data.model.ResultList
 import com.mercadolibre.test.data.model.Results
 import com.mercadolibre.melitesttl.application.data.repository.IProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
