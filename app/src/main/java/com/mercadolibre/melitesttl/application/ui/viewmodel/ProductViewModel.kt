@@ -26,9 +26,11 @@ class ProductViewModel @Inject constructor(
                 is ResponseObject.Success -> {
                     val resultList = (products.data as ResultList).results
                     productsLiveData.postValue(resultList)
-                    Timber.d("success %s", resultList.size)
                 }
-                is ResponseObject.Error -> errorLiveData.postValue(ErrorUI(products.code, products.message))
+                is ResponseObject.Error ->  {
+                    Timber.d("error", ErrorUI(products.code, products.message).toString())
+                    errorLiveData.postValue(ErrorUI(products.code, products.message))
+                }
             }
         }
     }
